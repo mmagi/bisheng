@@ -934,8 +934,8 @@ class Milvus(MilvusLangchain):
     @staticmethod
     def _relevance_score_fn(distance: float) -> float:
         """Normalize the distance to a score on a scale [0, 1]."""
-        # Todo: normalize the es score on a scale [0, 1]
-        return 1 - distance
+        # Normlize l2 distance 
+        return 1 - distance / 2
 
     def _select_relevance_score_fn(self) -> Callable[[float], float]:
         return self._relevance_score_fn
